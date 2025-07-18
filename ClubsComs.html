@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
  <head>
   <meta charset="utf-8"/>
@@ -200,7 +199,6 @@
           margin-bottom: 25px;
       }
       
-      /* THIS IS THE NEW STYLE FOR THE BANNER */
       .card-banner {
           width: 100%;
           height: 180px;
@@ -262,159 +260,279 @@
           border-radius: 15px;
           justify-content: center;
       }
-      
-      /* Other styles remain the same */
   </style>
  </head>
  <body>
   <div id="header-container"></div>
-  
-  <section class="section committees-section" id="committees">
-   <div class="container">
-    <h2 class="section-title fade-in">
-     Committees
-    </h2>
-    <div class="cards-grid">
-     <div class="card fade-in">
-      <div class="card-banner" style="background-image: url('images/ACBan.png');"></div>
-      <div class="card-header">
-       <div class="card-logo">
-        <img src="images/academic_logo.png" alt="Academic Committee Logo"/>
-       </div>
-       <div>
-        <h3 class="card-title">
-         Academic Committee
-        </h3>
-       </div>
+<div class="card fade-in">
+  <div class="card-banner" style="background-image: url('images/ACBan.png');"></div>
+  <div class="card-header">
+    <div class="card-logo">
+      <img src="images/academic_logo.png" alt="Academic Committee Logo" />
+    </div>
+    <div>
+      <h3 class="card-title">Academic Committee</h3>
+    </div>
+  </div>
+  <p class="card-description">
+    Acts as the bridge between the IPM students and the administration, ensuring seamless communication, organizing workshops and guest lectures, and helping maintain academic discipline. Supports faculty and the IPM Office during batch inductions.
+  </p>
+  <div class="card-links">
+    <button class="card-link members" onclick="toggleTeam('academic')">
+      Meet the Team
+      <span class="toggle-icon" id="academic-icon">▼</span>
+    </button>
+    <a class="card-link events" href="#">
+      Event Gallery
+    </a>
+    <a class="card-link photos" href="#">
+      Drive
+    </a>
+  </div>
+  <div class="team-section" id="team-academic">
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="images/team/Shrish.jpg" alt="Shrish">
+        <p>Shrish<br>Senior Coordinator<br>shrish@example.com</p>
       </div>
-      <p class="card-description">
-       Acts as the bridge between the IPM students and the administration, ensuring seamless communication, organizing workshops and guest lectures, and helping maintain academic discipline. Supports faculty and the IPM Office during batch inductions.
-      </p>
-      </div>
-     <div class="card fade-in">
-      <div class="card-banner" style="background-image: url('images/ICBan.png');"></div>
-      <div class="card-header">
-       <div class="card-logo">
-        <img src="images/internship_logo.png" alt="Internship Committee Logo"/>
-       </div>
-       <div>
-        <h3 class="card-title">
-         Internship Committee
-        </h3>
-       </div>
-      </div>
-      <p class="card-description">
-       Works closely with corporates to bring internship and live project opportunities for IPM students. Organizes corporate connect sessions and guest lectures to bridge the industry-academia gap and help students prepare for professional life.
-      </p>
+      <div class="team-member">
+        <img src="images/team/Akruti.jpg" alt="Akruti">
+        <p>Akruti<br>Senior Coordinator<br>akruti@example.com</p>
       </div>
     </div>
-   </div>
-  </section>
-  
-  <section class="section clubs-section" id="clubs">
-   <div class="container">
-    <h2 class="section-title fade-in">
-     Clubs
-    </h2>
-    <div class="cards-grid">
-     <div class="card fade-in">
-      <div class="card-banner" style="background-image: url('images/AthBan.png');"></div>
-      <div class="card-header">
-       <div class="card-logo">
-        <img src="images/sports_logo.png" alt="Sports Club Logo"/>
-       </div>
-       <div>
-        <h3 class="card-title">
-         Athlos (Sports Club)
-        </h3>
-       </div>
+  </div>
+</div>
+
+<!-- Internship Committee Card with Updated Team -->
+<div class="card fade-in">
+  <div class="card-banner" style="background-image: url('images/ICBan.png');"></div>
+  <div class="card-header">
+    <div class="card-logo">
+      <img src="images/internship_logo.png" alt="Internship Committee Logo" />
+    </div>
+    <div>
+      <h3 class="card-title">Internship Committee</h3>
+    </div>
+  </div>
+  <p class="card-description">
+    Works closely with corporates to bring internship and live project opportunities for IPM students. Organizes corporate connect sessions and guest lectures to bridge the industry-academia gap and help students prepare for professional life.
+  </p>
+  <div class="card-links">
+    <button class="card-link members" onclick="toggleTeam('internship')">
+      Meet the Team
+      <span class="toggle-icon" id="internship-icon">▼</span>
+    </button>
+    <a class="card-link events" href="#">
+      Event Gallery
+    </a>
+    <a class="card-link photos" href="#">
+      Drive
+    </a>
+  </div>
+  <div class="team-section" id="team-internship">
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="images/team/Aditi.jpg" alt="Aditi">
+        <p>Aditi<br>Senior Internship Coordinator<br>aditi@example.com</p>
       </div>
-      <p class="card-description">
-       Builds a sporting culture on campus by organizing tournaments and promoting mass participation. Focuses on sportsmanship, team spirit, talent development, and improving sports infrastructure to represent the institute at various events.
-      </p>
+      <div class="team-member">
+        <img src="images/team/Anushree.jpg" alt="Anushree">
+        <p>Anushree<br>Senior Internship Coordinator<br>anushree@example.com</p>
       </div>
-     <div class="card fade-in">
-      <div class="card-banner" style="background-image: url('images/RiwBan.png');"></div>
-      <div class="card-header">
-       <div class="card-logo">
-        <img src="images/cultural_logo.png" alt="Cultural Club Logo"/>
-       </div>
-       <div>
-        <h3 class="card-title">
-         Riwaayat (Cultural Club)
-        </h3>
-       </div>
+      <div class="team-member">
+        <img src="images/team/Aryaa.jpg" alt="Aryaa">
+        <p>Aryaa<br>Senior Internship Coordinator<br>aryaa@example.com</p>
       </div>
-      <p class="card-description">
-       Promotes creativity by organizing events and competitions in art &amp; craft, dance, drama, music, and fashion. Keeps students connected with cultural values and traditions, and coordinates celebrations.
-      </p>
+      <div class="team-member">
+        <img src="images/team/Somansha.jpg" alt="Somansha">
+        <p>Somansha<br>Senior Internship Coordinator<br>somansha@example.com</p>
       </div>
-     <div class="card fade-in">
-      <div class="card-banner" style="background-image: url('images/LitBan.png');"></div>
-      <div class="card-header">
-       <div class="card-logo">
-        <img src="images/literary_logo.png" alt="Literary Club Logo"/>
-       </div>
-       <div>
-        <h3 class="card-title">
-         Literati (Literary Club)
-        </h3>
-       </div>
+      <div class="team-member">
+        <img src="images/team/Upagnya.jpg" alt="Upagnya">
+        <p>Upagnya<br>Senior Internship Coordinator<br>upagnya@example.com</p>
       </div>
-      <p class="card-description">
-       Organizes debate, extempore, and essay writing competitions. Publishes newsletters and magazines to encourage creative expression. Provides a platform for students to hone their speaking, writing, and analytical skills.
-      </p>
-      </div>
-     <div class="card fade-in">
-      <div class="card-banner" style="background-image: url('images/UtBan.jpg');"></div>
-      <div class="card-header">
-       <div class="card-logo">
-        <img src="images/utthaan_logo.png" alt="Social Welfare Club Logo"/>
-       </div>
-       <div>
-        <h3 class="card-title">
-         Utthaan (Social Welfare Club)
-        </h3>
-       </div>
-      </div>
-      <p class="card-description">
-       Dedicated to creating a positive social impact. Organizes and participates in community service initiatives, awareness campaigns, and social welfare projects to contribute meaningfully to society.
-      </p>
-      <div class="card-links">
-       <button class="card-link members" onclick="toggleTeam('utthaan')">
-        Meet the Team
-        <span class="toggle-icon" id="utthaan-icon">
-         ▼
-        </span>
-       </button>
-       <a class="card-link events" href="#" onclick="toggleCarousel(this, 'carousel-utthaan')">
-        Event Gallery
-       </a>
-       <a class="card-link photos" href="#">
-        Drive
-       </a>
-      </div>
+      <div class="team-member">
+        <img src="images/team/Utkarsh.jpg" alt="Utkarsh">
+        <p>Utkarsh<br>Senior Internship Coordinator<br>utkarsh@example.com</p>
       </div>
     </div>
-   </div>
-  </section>
-  
-  <script>
-    // Fetch header and other scripts remain the same
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header-container').innerHTML = data;
-        // Navigation link highlighting logic
-      });
+  </div>
+</div>
 
-    function toggleTeam(id) {
-        // Toggle logic for team sections
-    }
+<!-- Athlos Club Card -->
+<div class="card fade-in">
+  <div class="card-banner" style="background-image: url('images/AthBan.png');"></div>
+  <div class="card-header">
+    <div class="card-logo">
+      <img src="images/sports_logo.png" alt="Sports Club Logo" />
+    </div>
+    <div>
+      <h3 class="card-title">Athlos (Sports Club)</h3>
+    </div>
+  </div>
+  <p class="card-description">
+    Builds a sporting culture on campus by organizing tournaments and promoting mass participation. Focuses on sportsmanship, team spirit, talent development, and improving sports infrastructure to represent the institute at various events.
+  </p>
+  <div class="card-links">
+    <button class="card-link members" onclick="toggleTeam('athlos')">
+      Meet the Team
+      <span class="toggle-icon" id="athlos-icon">▼</span>
+    </button>
+    <a class="card-link events" href="#">Event Gallery</a>
+    <a class="card-link photos" href="#">Drive</a>
+  </div>
+  <div class="team-section" id="team-athlos">
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="images/team/Dev.jpg" alt="Dev">
+        <p>Dev<br>Coordinator<br>dev@example.com</p>
+      </div>
+      <div class="team-member">
+        <img src="images/team/Modi.jpg" alt="Modi">
+        <p>Modi<br>Co-coordinator<br>modi@example.com</p>
+      </div>
+      <div class="team-member">
+        <img src="images/team/Kaustubh.jpg" alt="Kaustubh">
+        <p>Kaustubh<br>Core Member<br>kaustubh@example.com</p>
+      </div>
+      <div class="team-member">
+        <img src="images/team/Vansh.jpg" alt="Vansh">
+        <p>Vansh<br>Core Member<br>vansh@example.com</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-    function toggleCarousel(button, id) {
-        // Toggle logic for carousels
-    }
-  </script>
+<!-- Riwaayat Club Card -->
+<div class="card fade-in">
+  <div class="card-banner" style="background-image: url('images/RiwBan.png');"></div>
+  <div class="card-header">
+    <div class="card-logo">
+      <img src="images/cultural_logo.png" alt="Cultural Club Logo" />
+    </div>
+    <div>
+      <h3 class="card-title">Riwaayat (Cultural Club)</h3>
+    </div>
+  </div>
+  <p class="card-description">
+    Promotes creativity by organizing events and competitions in art & craft, dance, drama, music, and fashion. Keeps students connected with cultural values and traditions, and coordinates celebrations.
+  </p>
+  <div class="card-links">
+    <button class="card-link members" onclick="toggleTeam('riwaayat')">
+      Meet the Team
+      <span class="toggle-icon" id="riwaayat-icon">▼</span>
+    </button>
+    <a class="card-link events" href="#">Event Gallery</a>
+    <a class="card-link photos" href="#">Drive</a>
+  </div>
+  <div class="team-section" id="team-riwaayat">
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="images/team/Ishika.jpg" alt="Ishika">
+        <p>Ishika<br>Coordinator<br>ishika@example.com</p>
+      </div>
+      <div class="team-member">
+        <img src="images/team/Mrinali.jpg" alt="Mrinali">
+        <p>Mrinali<br>Co-coordinator<br>mrinali@example.com</p>
+      </div>
+      <div class="team-member">
+        <img src="images/team/Avi.jpg" alt="Avi">
+        <p>Avi<br>Core Member<br>avi@example.com</p>
+      </div>
+      <div class="team-member">
+        <img src="images/team/Yusuf.jpg" alt="Yusuf">
+        <p>Yusuf<br>Core Member<br>yusuf@example.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- The Literati Club Card -->
+<div class="card fade-in">
+  <div class="card-banner" style="background-image: url('images/LitBan.png');"></div>
+  <div class="card-header">
+    <div class="card-logo">
+      <img src="images/literary_logo.png" alt="Literary Club Logo" />
+    </div>
+    <div>
+      <h3 class="card-title">The Literati (Literary Club)</h3>
+    </div>
+  </div>
+  <p class="card-description">
+    Organizes debate, extempore, and essay writing competitions. Publishes newsletters and magazines to encourage creative expression. Provides a platform for students to hone their speaking, writing, and analytical skills.
+  </p>
+  <div class="card-links">
+    <button class="card-link members" onclick="toggleTeam('literati')">
+      Meet the Team
+      <span class="toggle-icon" id="literati-icon">▼</span>
+    </button>
+    <a class="card-link events" href="#">Event Gallery</a>
+    <a class="card-link photos" href="#">Drive</a>
+  </div>
+  <div class="team-section" id="team-literati">
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="images/team/Mannat.jpg" alt="Mannat">
+        <p>Mannat<br>Coordinator<br>mannat@example.com</p>
+      </div>
+      <div class="team-member">
+        <img src="images/team/Sarthak.jpg" alt="Sarthak">
+        <p>Sarthak<br>Co-coordinator<br>sarthak@example.com</p>
+      </div>
+      <div class="team-member">
+        <img src="images/team/Gautam.jpg" alt="Gautam">
+        <p>Gautam<br>Core Member<br>gautam@example.com</p>
+      </div>
+      <div class="team-member">
+        <img src="images/team/Parmi.jpg" alt="Parmi">
+        <p>Parmi<br>Core Member<br>parmi@example.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Utthaan Club Card -->
+<div class="card fade-in">
+  <div class="card-banner" style="background-image: url('images/UtBan.jpg');"></div>
+  <div class="card-header">
+    <div class="card-logo">
+      <img src="images/utthaan_logo.png" alt="Social Welfare Club Logo" />
+    </div>
+    <div>
+      <h3 class="card-title">Utthaan (Social Welfare Club)</h3>
+    </div>
+  </div>
+  <p class="card-description">
+    Dedicated to creating a positive social impact. Organizes and participates in community service initiatives, awareness campaigns, and social welfare projects to contribute meaningfully to society.
+  </p>
+  <div class="card-links">
+    <button class="card-link members" onclick="toggleTeam('utthaan')">
+      Meet the Team
+      <span class="toggle-icon" id="utthaan-icon">▼</span>
+    </button>
+    <a class="card-link events" href="#">Event Gallery</a>
+    <a class="card-link photos" href="#">Drive</a>
+  </div>
+  <div class="team-section" id="team-utthaan">
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="images/team/Nandini.jpg" alt="Nandini">
+        <p>Nandini<br>Coordinator<br>nandini@example.com</p>
+      </div>
+      <div class="team-member">
+        <img src="images/team/Divya.jpg" alt="Divya">
+        <p>Divya<br>Co-coordinator<br>divya@example.com</p>
+      </div>
+      <div class="team-member">
+        <img src="images/team/Aryan.jpg" alt="Aryan">
+        <p>Aryan<br>Core Member<br>aryan@example.com</p>
+      </div>
+      <div class="team-member">
+        <img src="images/team/Divanshi.jpg" alt="Divanshi">
+        <p>Divanshi<br>Core Member<br>divanshi@example.com</p>
+      </div>
+    </div>
+  </div>
+</div>
  </body>
 </html>
