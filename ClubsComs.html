@@ -39,31 +39,7 @@
             padding: 0 20px;
         }
         
-        /* The original header styles below might need adjustment or removal
-           if your header.html contains its own comprehensive styling.
-           I'm leaving them here for now as per the instruction to add the reference.
-           If the header from header.html looks incorrect, these would be the first place to check.
-        */
-        header {
-            background: linear-gradient(135deg, var(--royal) 0%, var(--midnight) 100%);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: float 20s infinite linear;
-        }
+       
         
         @keyframes float {
             0% { transform: translateY(0) rotate(0deg); }
