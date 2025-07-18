@@ -7,472 +7,476 @@
    IPM Clubs &amp; Committees
   </title>
   <style>
-   * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --royal: #334EAC;
-            --moon: #F7F2EB;
-            --china: #7096D1;
-            --asian-pear: #F2F0DE;
-            --midnight: #081F5C;
-            --dawn: #D0E3FF;
-            --jicama: #FFF9F0;
-            --porcelain: #EDF1F6;
-            --sky: #BAD6EB;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--midnight);
-            background: linear-gradient(135deg, var(--moon) 0%, var(--porcelain) 100%);
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles - These are the styles matching index.html for the dynamically loaded header */
-        .header {
-            background: linear-gradient(135deg, var(--royal) 0%, var(--midnight) 100%);
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(8, 31, 92, 0.15);
-        }
+      /* Global Reset & Body Styles from index.html for consistency */
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
 
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
+      body {
+          font-family: Georgia, serif; /* Matching index.html */
+          background-color: #F7F2EB; /* Matching index.html */
+          line-height: 1.6;
+      }
 
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
+      /* Header Styles - These are already consistent with index.html */
+      .header {
+          background: linear-gradient(135deg, #334EAC 0%, #081F5C 100%);
+          padding: 1rem 0;
+          box-shadow: 0 2px 10px rgba(8, 31, 92, 0.15);
+      }
 
-        .iim-logo {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-        }
+      .header-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 2rem;
+      }
 
-        .campusji-logo-placeholder {
-            width: 180px; /* Adjust as needed */
-            height: 50px; /* Adjust as needed */
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
+      .logo-section {
+          display: flex;
+          align-items: center;
+          gap: 1.5rem;
+      }
 
-        .nav-menu {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
+      .iim-logo {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+      }
 
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 0;
-            position: relative;
-            transition: color 0.3s ease;
-        }
+      .campusji-logo-placeholder {
+          width: 180px;
+          height: 50px;
+          background: rgba(255, 255, 255, 0.1);
+          border: 2px dashed rgba(255, 255, 255, 0.3);
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #D0E3FF;
+          font-size: 0.9rem;
+          font-weight: 500;
+          letter-spacing: 0.5px;
+      }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 2px;
-            background-color: white;
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
+      .nav-menu {
+          display: flex;
+          list-style: none;
+          gap: 2rem;
+      }
 
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            transform: scaleX(1);
-        }
+      .nav-link {
+          color: #F7F2EB;
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 1rem;
+          padding: 0.75rem 1.25rem;
+          border-radius: 8px;
+          transition: all 0.3s ease;
+      }
 
-        .nav-link.active {
-            color: #d0e3ff; /* Lighter color for active link */
-        }
-        
-        /* End Header Styles */
+      .nav-link:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+          color: #D0E3FF;
+          transform: translateY(-2px);
+      }
 
-        /* Original general header-related styles removed as they conflicted with the loaded header.html */
-        
-        .section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--royal);
-            margin-bottom: 60px;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--royal), var(--china));
-            border-radius: 2px;
-        }
-        
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(8, 31, 92, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--royal), var(--china));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(8, 31, 92, 0.15);
-        }
-        
-        .card:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .card-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .card-logo {
-            width: 80px;
-            height: 80px;
-            margin-right: 20px;
-            border-radius: 50%;
-            background: var(--dawn);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 3px solid var(--china);
-            flex-shrink: 0;
-        }
-        
-        .card-logo img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-        }
-        
-        .card-logo-placeholder {
-            font-size: 0.8rem;
-            color: var(--royal);
-            text-align: center;
-            font-weight: 500;
-        }
-        
-        .card-title {
-            font-size: 1.5rem;
-            color: var(--royal);
-            margin-bottom: 5px;
-        }
-        
-        .card-description {
-            color: var(--midnight);
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-        
-        .card-links {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .card-link {
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            border: none;
-            font-size: 14px;
-        }
-        
-        .card-link.members {
-            background: var(--sky);
-            color: var(--midnight);
-        }
-        
-        .card-link.photos {
-            background: var(--asian-pear);
-            color: var(--midnight);
-        }
-        
-        .card-link.videos {
-            background: var(--royal);
-            color: white;
-        }
-        
-        .card-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .team-section {
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            margin-top: 0;
-        }
-        
-        .team-section.expanded {
-            max-height: 1000px;
-            margin-top: 30px;
-        }
-        
-        .team-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 20px;
-            background: var(--asian-pear);
-            border-radius: 15px;
-            justify-content: center;
-        }
-        
-        .team-member {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(8, 31, 92, 0.1);
-            transition: transform 0.3s ease;
-            width: 200px;
-            flex-shrink: 0;
-        }
-        
-        .team-member:hover {
-            transform: translateY(-5px);
-        }
-        
-        .member-photo {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            background: var(--dawn);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 3px solid var(--china);
-            overflow: hidden;
-        }
-        
-        .member-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .member-photo-placeholder {
-            font-size: 0.8rem;
-            color: var(--royal);
-            text-align: center;
-        }
-        
-        .member-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--royal);
-            margin-bottom: 5px;
-        }
-        
-        .member-email {
-            font-size: 0.9rem;
-            color: var(--midnight);
-            opacity: 0.7;
-        }
-        
-        .calendar-section {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(8, 31, 92, 0.1);
-            margin-top: 40px;
-        }
-        
-        .calendar-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .calendar-title {
-            font-size: 2rem;
-            color: var(--royal);
-            margin-bottom: 10px;
-        }
-        
-        .calendar-subtitle {
-            color: var(--midnight);
-            opacity: 0.7;
-        }
-        
-        .calendar-embed {
-            width: 100%;
-            height: 600px;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(8, 31, 92, 0.1);
-        }
-        
-        .committees-section {
-            background: linear-gradient(135deg, var(--jicama) 0%, var(--moon) 100%);
-        }
-        
-        .clubs-section {
-            background: linear-gradient(135deg, var(--porcelain) 0%, var(--dawn) 100%);
-        }
-        
-        .toggle-icon {
-            transition: transform 0.3s ease;
-        }
-        
-        .toggle-icon.rotated {
-            transform: rotate(180deg);
-        }
-        
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            .nav-menu {
-                flex-direction: column;
-                gap: 0.5rem;
-                padding: 1rem 0;
-            }
+      .nav-link.active {
+          background-color: #7096D1;
+          color: white;
+      }
 
-            .cards-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            h1 { /* This H1 rule here is for general use, not the header's original H1 */
-                font-size: 2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .card {
-                padding: 20px;
-            }
-            
-            .calendar-embed {
-                height: 400px;
-            }
-            
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .card-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .card-logo {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-        }
-        
+      /* Main Content style from index.html */
+      .main-content {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 2rem;
+      }
 
-        .card-image {
-            width: 100%;
-            height: 180px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            overflow: hidden;
-            background: var(--dawn);
-        }
+      /* Variables and other specific styles from ClubsComs (3).html retained for rest of the page */
+      :root {
+          --royal: #334EAC;
+          --moon: #F7F2EB;
+          --china: #7096D1;
+          --asian-pear: #F2F0DE;
+          --midnight: #081F5C;
+          --dawn: #D0E3FF;
+          --jicama: #FFF9F0;
+          --porcelain: #EDF1F6;
+          --sky: #BAD6EB;
+      }
 
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+      /* Other ClubsComs (3).html specific styles below, using variables where appropriate */
+      .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+      }
 
-        .card-link.events {
-            background: var(--china);
-            color: white;
-        }
+      @keyframes float {
+          0% { transform: translateY(0) rotate(0deg); }
+          100% { transform: translateY(-20px) rotate(360deg); }
+      }
 
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-  
-@media(min-width: 1024px) {
-    .container {
-    }
-}
+      h1 {
+          font-size: 3rem;
+          margin-bottom: 20px;
+          position: relative;
+          z-index: 1;
+      }
+
+      .subtitle {
+          font-size: 1.2rem;
+          opacity: 0.9;
+          position: relative;
+          z-index: 1;
+      }
+
+      .section {
+          padding: 80px 0;
+      }
+
+      .section-title {
+          text-align: center;
+          font-size: 2.5rem;
+          color: var(--royal);
+          margin-bottom: 60px;
+          position: relative;
+      }
+
+      .section-title::after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100px;
+          height: 4px;
+          background: linear-gradient(90deg, var(--royal), var(--china));
+          border-radius: 2px;
+      }
+
+      .cards-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+          gap: 30px;
+          margin-bottom: 60px;
+      }
+
+      .card {
+          background: white;
+          border-radius: 20px;
+          padding: 30px;
+          box-shadow: 0 10px 30px rgba(8, 31, 92, 0.1);
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+      }
+
+      .card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(90deg, var(--royal), var(--china));
+          transform: scaleX(0);
+          transition: transform 0.3s ease;
+      }
+
+      .card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 40px rgba(8, 31, 92, 0.15);
+      }
+
+      .card:hover::before {
+          transform: scaleX(1);
+      }
+
+      .card-header {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+      }
+
+      .card-logo {
+          width: 80px;
+          height: 80px;
+          margin-right: 20px;
+          border-radius: 50%;
+          background: var(--dawn);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 3px solid var(--china);
+          flex-shrink: 0;
+      }
+
+      .card-logo img {
+          width: 50px;
+          height: 50px;
+          object-fit: contain;
+      }
+
+      .card-logo-placeholder {
+          font-size: 0.8rem;
+          color: var(--royal);
+          text-align: center;
+          font-weight: 500;
+      }
+
+      .card-title {
+          font-size: 1.5rem;
+          color: var(--royal);
+          margin-bottom: 5px;
+      }
+
+      .card-description {
+          color: var(--midnight);
+          line-height: 1.7;
+          margin-bottom: 25px;
+      }
+
+      .card-links {
+          display: flex;
+          gap: 15px;
+          flex-wrap: wrap;
+      }
+
+      .card-link {
+          padding: 10px 20px;
+          border-radius: 25px;
+          text-decoration: none;
+          font-weight: 500;
+          transition: all 0.3s ease;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          cursor: pointer;
+          border: none;
+          font-size: 14px;
+      }
+
+      .card-link.members {
+          background: var(--sky);
+          color: var(--midnight);
+      }
+
+      .card-link.photos {
+          background: var(--asian-pear);
+          color: var(--midnight);
+      }
+
+      .card-link.videos {
+          background: var(--royal);
+          color: white;
+      }
+
+      .card-link:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      }
+
+      .team-section {
+          max-height: 0;
+          overflow: hidden;
+          transition: all 0.5s ease;
+          margin-top: 0;
+      }
+
+      .team-section.expanded {
+          max-height: 1000px;
+          margin-top: 30px;
+      }
+
+      .team-grid {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          padding: 20px;
+          background: var(--asian-pear);
+          border-radius: 15px;
+          justify-content: center;
+      }
+
+      .team-member {
+          background: white;
+          border-radius: 15px;
+          padding: 20px;
+          text-align: center;
+          box-shadow: 0 5px 15px rgba(8, 31, 92, 0.1);
+          transition: transform 0.3s ease;
+          width: 200px;
+          flex-shrink: 0;
+      }
+
+      .team-member:hover {
+          transform: translateY(-5px);
+      }
+
+      .member-photo {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          margin: 0 auto 15px;
+          background: var(--dawn);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 3px solid var(--china);
+          overflow: hidden;
+      }
+
+      .member-photo img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+
+      .member-photo-placeholder {
+          font-size: 0.8rem;
+          color: var(--royal);
+          text-align: center;
+      }
+
+      .member-name {
+          font-size: 1.1rem;
+          font-weight: 600;
+          color: var(--royal);
+          margin-bottom: 5px;
+      }
+
+      .member-email {
+          font-size: 0.9rem;
+          color: var(--midnight);
+          opacity: 0.7;
+      }
+
+      .calendar-section {
+          background: white;
+          border-radius: 20px;
+          padding: 40px;
+          box-shadow: 0 10px 30px rgba(8, 31, 92, 0.1);
+          margin-top: 40px;
+      }
+
+      .calendar-header {
+          text-align: center;
+          margin-bottom: 30px;
+      }
+
+      .calendar-title {
+          font-size: 2rem;
+          color: var(--royal);
+          margin-bottom: 10px;
+      }
+
+      .calendar-subtitle {
+          color: var(--midnight);
+          opacity: 0.7;
+      }
+
+      .calendar-embed {
+          width: 100%;
+          height: 600px;
+          border: none;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(8, 31, 92, 0.1);
+      }
+
+      .committees-section {
+          background: linear-gradient(135deg, var(--jicama) 0%, var(--moon) 100%);
+      }
+
+      .clubs-section {
+          background: linear-gradient(135deg, var(--porcelain) 0%, var(--dawn) 100%);
+      }
+
+      .toggle-icon {
+          transition: transform 0.3s ease;
+      }
+
+      .toggle-icon.rotated {
+          transform: rotate(180deg);
+      }
+
+      @media (max-width: 768px) {
+          .cards-grid {
+              grid-template-columns: 1fr;
+              gap: 20px;
+          }
+
+          h1 {
+              font-size: 2rem;
+          }
+
+          .section-title {
+              font-size: 2rem;
+          }
+
+          .card {
+              padding: 20px;
+          }
+
+          .calendar-embed {
+              height: 400px;
+          }
+
+          .team-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .card-header {
+              flex-direction: column;
+              text-align: center;
+          }
+
+          .card-logo {
+              margin-right: 0;
+              margin-bottom: 15px;
+          }
+      }
+
+      .card-image {
+          width: 100%;
+          height: 180px;
+          margin-bottom: 20px;
+          border-radius: 12px;
+          overflow: hidden;
+          background: var(--dawn);
+      }
+
+      .card-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+
+      .card-link.events {
+          background: var(--china);
+          color: white;
+      }
+
+      .fade-in {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: all 0.6s ease;
+      }
+
+      .fade-in.visible {
+          opacity: 1;
+          transform: translateY(0);
+      }
+
+      @media(min-width: 1024px) {
+          .container {
+          }
+      }
   </style>
  </head>
  <body>
@@ -945,6 +949,38 @@
           member@email.com
          </div>
         </div>
+        <div class="team-member">
+         <div class="member-photo">
+          <div class="member-photo-placeholder">
+           PHOTO
+          </div>
+         </div>
+         <div class="member-name">
+          Member Name
+         </div>
+         <div class="member-position">
+          Core Member
+         </div>
+         <div class="member-email">
+          member@email.com
+         </div>
+        </div>
+        <div class="team-member">
+         <div class="member-photo">
+          <div class="member-photo-placeholder">
+           PHOTO
+          </div>
+         </div>
+         <div class="member-name">
+          Member Name
+         </div>
+         <div class="member-position">
+          Core Member
+         </div>
+         <div class="member-email">
+          member@email.com
+         </div>
+        </div>
        </div>
       </div>
       <div class="carousel-section carousel-2" style="display:none; margin-top: 20px; overflow-x: auto; white-space: nowrap;">
@@ -970,21 +1006,17 @@
        </div>
        <div>
         <h3 class="card-title">
-         The Literati (Literature Club)
+         Abhyudaya (Literary Club)
         </h3>
        </div>
       </div>
       <p class="card-description">
-       Encourages reading, writing, and public speaking with activities like debates, MUNs, poetry, creative writing, open mics, and book reviews. Provides a space to enhance linguistic and communication skills under the motto
-       <em>
-        Carpe Librum
-       </em>
-       (Seize the Book).
+       Organizes debate, extempore, and essay writing competitions. Publishes newsletters and magazines to encourage creative expression. Provides a platform for students to hone their speaking, writing, and analytical skills.
       </p>
       <div class="card-links">
-       <button class="card-link members" onclick="toggleTeam('literature')">
+       <button class="card-link members" onclick="toggleTeam('literary')">
         Meet the Team
-        <span class="toggle-icon" id="literature-icon">
+        <span class="toggle-icon" id="literary-icon">
          ▼
         </span>
        </button>
@@ -995,7 +1027,7 @@
         Drive
        </a>
       </div>
-      <div class="team-section" id="literature-team">
+      <div class="team-section" id="literary-team">
        <div class="team-grid">
         <div class="team-member">
          <div class="member-photo">
@@ -1024,22 +1056,6 @@
          </div>
          <div class="member-position">
           Co-coordinator
-         </div>
-         <div class="member-email">
-          member@email.com
-         </div>
-        </div>
-        <div class="team-member">
-         <div class="member-photo">
-          <div class="member-photo-placeholder">
-           PHOTO
-          </div>
-         </div>
-         <div class="member-name">
-          Member Name
-         </div>
-         <div class="member-position">
-          Core Member
          </div>
          <div class="member-email">
           member@email.com
@@ -1074,215 +1090,31 @@
        </div>
       </div>
      </div>
-     <div class="card fade-in">
-      <div class="card-image">
-       <img alt="Club Banner" src="path-to-club-or-committee-image.jpg"/>
-      </div>
-      <div class="card-header">
-       <div class="card-logo">
-        <div class="card-logo-placeholder">
-         LOGO
-        </div>
-       </div>
-       <div>
-        <h3 class="card-title">
-         Utthaan (Social Welfare Club)
-        </h3>
-       </div>
-      </div>
-      <p class="card-description">
-       Promotes humanitarian values and social awareness. Organizes events to encourage critical thinking, volunteering, and giving back to society. Supports the administration in activities like NSS and community development projects, while fostering inclusivity and empathy.
-      </p>
-      <div class="card-links">
-       <button class="card-link members" onclick="toggleTeam('welfare')">
-        Meet the Team
-        <span class="toggle-icon" id="welfare-icon">
-         ▼
-        </span>
-       </button>
-       <a class="card-link events" href="#" onclick="toggleCarousel(this, 'carousel-5')">
-        Event Gallery
-       </a>
-       <a class="card-link photos" href="#">
-        Drive
-       </a>
-      </div>
-      <div class="team-section" id="welfare-team">
-       <div class="team-grid">
-        <div class="team-member">
-         <div class="member-photo">
-          <div class="member-photo-placeholder">
-           PHOTO
-          </div>
-         </div>
-         <div class="member-name">
-          Member Name
-         </div>
-         <div class="member-position">
-          Coordinator
-         </div>
-         <div class="member-email">
-          member@email.com
-         </div>
-        </div>
-        <div class="team-member">
-         <div class="member-photo">
-          <div class="member-photo-placeholder">
-           PHOTO
-          </div>
-         </div>
-         <div class="member-name">
-          Member Name
-         </div>
-         <div class="member-position">
-          Co-coordinator
-         </div>
-         <div class="member-email">
-          member@email.com
-         </div>
-        </div>
-        <div class="team-member">
-         <div class="member-photo">
-          <div class="member-photo-placeholder">
-           PHOTO
-          </div>
-         </div>
-         <div class="member-name">
-          Member Name
-         </div>
-         <div class="member-position">
-          Core Member
-         </div>
-         <div class="member-email">
-          member@email.com
-         </div>
-        </div>
-        <div class="team-member">
-         <div class="member-photo">
-          <div class="member-photo-placeholder">
-           PHOTO
-          </div>
-         </div>
-         <div class="member-name">
-          Member Name
-         </div>
-         <div class="member-position">
-          Core Member
-         </div>
-         <div class="member-email">
-          member@email.com
-         </div>
-        </div>
-       </div>
-      </div>
-      <div class="carousel-section carousel-5" style="display:none; margin-top: 20px; overflow-x: auto; white-space: nowrap;">
-       <div style="display: flex; gap: 10px; width: max-content;">
-        <img alt="Event Image" src="image1.jpg" style="height: 180px; width: 300px; border-radius: 8px; flex: 0 0 auto;"/>
-        <img alt="Event Image" src="image2.jpg" style="height: 180px; width: 300px; border-radius: 8px; flex: 0 0 auto;"/>
-        <img alt="Event Image" src="image3.jpg" style="height: 180px; width: 300px; border-radius: 8px; flex: 0 0 auto;"/>
-        <img alt="Event Image" src="image4.jpg" style="height: 180px; width: 300px; border-radius: 8px; flex: 0 0 auto;"/>
-        <img alt="Event Image" src="image5.jpg" style="height: 180px; width: 300px; border-radius: 8px; flex: 0 0 auto;"/>
-        <img alt="Event Image" src="image6.jpg" style="height: 180px; width: 300px; border-radius: 8px; flex: 0 0 auto;"/>
-       </div>
-      </div>
-     </div>
     </div>
    </div>
   </section>
-  <section class="section" id="calendar">
+  <section class="section calendar-section">
    <div class="container">
-    <div class="calendar-section fade-in">
-     <div class="calendar-header">
-      <h2 class="calendar-title">
-       Event Calendar
-      </h2>
-      <p class="calendar-subtitle">
-       Stay updated with all club and committee activities
-      </p>
-     </div>
-     <iframe class="calendar-embed" frameborder="0" height="600" scrolling="no" src="https://calendar.google.com/calendar/embed?src=4be2ed1c19d388aeafcc8e448c1c4c02070427c743e9915dd776c9a36177b81f%40group.calendar.google.com&amp;ctz=Asia%2FKolkata" style="border: 0" width="100%">
-     </iframe>
+    <div class="calendar-header">
+     <h2 class="calendar-title">
+      Event Calendar
+     </h2>
+     <p class="calendar-subtitle">
+      Stay updated with all the upcoming campus events
+     </p>
     </div>
+    <iframe class="calendar-embed" src="https://calendar.google.com/calendar/embed?src=your_calendar_id@group.calendar.google.com&ctz=Asia%2FKolkata">
+    </iframe>
    </div>
   </section>
   <script>
-   function toggleTeam(teamId) {
-    // Close all carousels
-    document.querySelectorAll('.carousel-section').forEach(section => {
-        section.style.display = "none";
-    });
+   // Toggle Team Section
+function toggleTeam(id) {
+    const teamSection = document.getElementById(id + '-team');
+    const icon = document.getElementById(id + '-icon');
 
-            const teamSection = document.getElementById(teamId + '-team');
-            const icon = document.getElementById(teamId + '-icon');
-            
-            if (teamSection.classList.contains('expanded')) {
-                teamSection.classList.remove('expanded');
-                icon.classList.remove('rotated');
-            } else {
-                // Close all other team sections
-                document.querySelectorAll('.team-section').forEach(section => {
-                    section.classList.remove('expanded');
-                });
-                document.querySelectorAll('.toggle-icon').forEach(icon => {
-                    icon.classList.remove('rotated');
-                });
-                
-                // Open the clicked team section
-                teamSection.classList.add('expanded');
-                icon.classList.add('rotated');
-            }
-        }
-        
-        // Smooth scroll animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Add hover effect to cards
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-  
-function toggleTeam(teamId) {
-    const teamSection = document.getElementById(teamId + '-team');
-    const icon = document.getElementById(teamId + '-icon');
-
-    // Close all carousels
-    document.querySelectorAll('.carousel-section').forEach(section => {
-        section.style.display = "none";
-    });
+    // Close all other carousel sections
+    document.querySelectorAll('.carousel-section').forEach(s => s.style.display = "none");
 
     if (teamSection.classList.contains('expanded')) {
         teamSection.classList.remove('expanded');
@@ -1340,7 +1172,42 @@ function toggleCarousel(button, id) {
           document.getElementById('homeLink').classList.add('active');
         } else if (path.includes('about%20us.html')) {
           document.getElementById('aboutLink').classList.add('active');
+        } else if (path.includes('ipm.html')) {
+          document.getElementById('ipmLink').classList.add('active');
+        } else if (path.includes('clubscoms.html')) {
+          document.getElementById('clubsComsLink').classList.add('active');
+        } else if (path.includes('resources.html')) {
+          document.getElementById('resourcesLink').classList.add('active');
         }
+      })
+      .catch(error => console.error('Error fetching header:', error));
+
+      // Fade-in effect for sections
+      document.addEventListener('DOMContentLoaded', () => {
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(
+          entries,
+          appearOnScroll
+        ) {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+              return;
+            } else {
+              entry.target.classList.add('visible');
+              appearOnScroll.unobserve(entry.target);
+            }
+          });
+        },
+        appearOptions);
+
+        faders.forEach(fader => {
+          appearOnScroll.observe(fader);
+        });
       });
   </script>
  </body>
