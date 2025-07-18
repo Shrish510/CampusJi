@@ -18,79 +18,86 @@
         }
 
        /* Header Styles */
-.header {
-    background: linear-gradient(135deg, #334EAC 0%, #081F5C 100%);
-    padding: 1rem 0;
-    box-shadow: 0 2px 10px rgba(8, 31, 92, 0.15);
-}
+        .header {
+            background: linear-gradient(135deg, #334EAC 0%, #081F5C 100%);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(8, 31, 92, 0.15);
+        }
 
-.header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-}
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
 
-.logo-section {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
 
-.iim-logo {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-}
+        .iim-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
 
-.campusji-logo-placeholder {
-    width: 180px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px dashed rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #D0E3FF;
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-}
+        .campusji-logo-placeholder {
+            width: 180px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #D0E3FF;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
 
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-.nav-link {
-    color: #F7F2EB;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-    padding: 0.75rem 1.25rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
+        .nav-link {
+            color: #F7F2EB;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
 
-.nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #D0E3FF;
-    transform: translateY(-2px);
-}
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #D0E3FF;
+            transform: translateY(-2px);
+        }
 
-.nav-link.active {
-    background-color: #7096D1;
-    color: white;
-}
+        .nav-link.active {
+            background-color: #7096D1;
+            color: white;
+        }
+
+        /* MODIFIED: Main content container with gaps */
+        .main-content {
+            max-width: 1200px; /* Constrains content width */
+            margin: 0 auto; /* Centers the content */
+            padding: 2rem; /* Adds space from the edges */
+        }
 
         /* Slider Styles */
         .slider-container {
             position: relative;
-            margin: 2rem 0;
+            margin-bottom: 3rem; /* Added margin for spacing */
             height: 500px;
             border-radius: 15px;
             overflow: hidden;
@@ -99,7 +106,7 @@
 
         .slider {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            transition: transform 0.7s ease-in-out; /* Smoother transition */
             height: 100%;
         }
 
@@ -143,27 +150,14 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
-        /* Fallback for slides without images */
-        .slide.text-slide {
-            background: linear-gradient(45deg, #334EAC, #7096D1);
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .slide.text-slide:nth-child(1) { background: linear-gradient(45deg, #334EAC, #7096D1); }
-        .slide.text-slide:nth-child(2) { background: linear-gradient(45deg, #081F5C, #334EAC); }
-        .slide.text-slide:nth-child(3) { background: linear-gradient(45deg, #7096D1, #BAD6EB); }
-        .slide.text-slide:nth-child(4) { background: linear-gradient(45deg, #BAD6EB, #D0E3FF); }
-
         .slider-nav {
             position: absolute;
             bottom: 20px;
-            right: 20px;
+            left: 50%;
+            transform: translateX(-50%); /* Centered dots */
             display: flex;
             gap: 10px;
+            z-index: 10;
         }
 
         .slider-dot {
@@ -184,7 +178,7 @@
         /* Three Column Section */
         .three-column-section {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
             gap: 2rem;
             margin: 3rem 0;
         }
@@ -242,7 +236,7 @@
 
         .weather-details {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             margin-top: 1rem;
         }
 
@@ -363,20 +357,16 @@
 
             .nav-menu {
                 flex-wrap: wrap;
+                justify-content: center;
                 gap: 1rem;
             }
-
-            .three-column-section {
-                grid-template-columns: 1fr;
-                gap: 1rem;
+            
+            .main-content {
+                padding: 1rem; /* Less padding on mobile */
             }
 
             .slider-container {
                 height: 300px;
-            }
-
-            .main-content {
-                padding: 0 1rem;
             }
 
             .slide-title {
@@ -399,35 +389,35 @@
         <div class="slider-container">
             <div class="slider">
                 <div class="slide">
-                    <img src="images/IMG-20250709-WA0016.jpg" alt="Event Trophy Celebration">
+                    <img src="images/IMG-20250709-WA0016.jpg" alt="Event Trophy Celebration" onerror="this.parentElement.innerHTML = 'Image not found';">
                     <div class="slide-overlay">
                         <div class="slide-title">Event Trophy Celebration</div>
                         <div class="slide-description">Students celebrating achievement at campus event</div>
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="images/IMG-20250709-WA0017.jpg" alt="Campus Interior">
+                    <img src="images/IMG-20250709-WA0017.jpg" alt="Campus Interior" onerror="this.parentElement.innerHTML = 'Image not found';">
                     <div class="slide-overlay">
                         <div class="slide-title">Campus Interior</div>
                         <div class="slide-description">Modern facilities and learning spaces</div>
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="images/IMG-20250709-WA0018.jpg" alt="Campus Front View">
+                    <img src="images/IMG-20250709-WA0018.jpg" alt="Campus Front View" onerror="this.parentElement.innerHTML = 'Image not found';">
                     <div class="slide-overlay">
                         <div class="slide-title">IIM Rohtak Campus</div>
                         <div class="slide-description">Beautiful campus architecture and grounds</div>
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="images/IMG-20250709-WA0019.jpg" alt="Volleyball Match">
+                    <img src="images/IMG-20250709-WA0019.jpg" alt="Volleyball Match" onerror="this.parentElement.innerHTML = 'Image not found';">
                     <div class="slide-overlay">
                         <div class="slide-title">Sports Activities</div>
                         <div class="slide-description">Inter-batch volleyball tournament in action</div>
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="images/IMG-20250709-WA0020.jpg" alt="Dance Performance">
+                    <img src="images/IMG-20250709-WA0020.jpg" alt="Dance Performance" onerror="this.parentElement.innerHTML = 'Image not found';">
                     <div class="slide-overlay">
                         <div class="slide-title">Cultural Events</div>
                         <div class="slide-description">Students showcasing talent at cultural fest</div>
@@ -569,32 +559,32 @@
     </main>
 
     <script>
-        // Enhanced slider functionality with image gallery
+        // Slider functionality
         let currentSlide = 0;
         const slider = document.querySelector('.slider');
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.slider-dot');
         const totalSlides = slides.length;
+        let slideInterval;
 
         function goToSlide(index) {
-            // Use transform instead of opacity for smooth sliding
             slider.style.transform = `translateX(-${index * 100}%)`;
-            
-            // Update dots
             dots.forEach((dot, i) => {
                 dot.classList.toggle('active', i === index);
             });
-            
             currentSlide = index;
         }
 
-        function nextSlide() {
-            const nextIndex = (currentSlide + 1) % totalSlides;
-            goToSlide(nextIndex);
+        function startSlider() {
+            slideInterval = setInterval(() => {
+                const nextIndex = (currentSlide + 1) % totalSlides;
+                goToSlide(nextIndex);
+            }, 4000); // Auto-scroll every 4 seconds
         }
 
-        // Auto-advance slides every 4 seconds
-        setInterval(nextSlide, 4000);
+        function stopSlider() {
+            clearInterval(slideInterval);
+        }
 
         // Dot navigation
         dots.forEach((dot, index) => {
@@ -602,6 +592,14 @@
                 goToSlide(index);
             });
         });
+        
+        // Optional: Pause slider on hover
+        document.querySelector('.slider-container').addEventListener('mouseenter', stopSlider);
+        document.querySelector('.slider-container').addEventListener('mouseleave', startSlider);
+
+        // Start the slider
+        startSlider();
+
 
         // FAQ functionality
         document.querySelectorAll('.faq-question').forEach(question => {
@@ -609,37 +607,21 @@
                 const faqItem = question.parentElement;
                 const isActive = faqItem.classList.contains('active');
                 
-                // Close all FAQ items
+                // Optional: Close all other FAQ items when one is opened
                 document.querySelectorAll('.faq-item').forEach(item => {
-                    item.classList.remove('active');
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                    }
                 });
                 
-                // Open clicked item if it wasn't active
-                if (!isActive) {
-                    faqItem.classList.add('active');
-                }
+                // Toggle the clicked item
+                faqItem.classList.toggle('active');
             });
         });
 
-                    });
-        });
-
-        // Handle image loading errors by falling back to gradient backgrounds
-        document.querySelectorAll('.slide img').forEach((img, index) => {
-            img.addEventListener('error', () => {
-                const slide = img.parentElement;
-                slide.innerHTML = `
-                    <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #334EAC, #7096D1); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; text-align: center; padding: 2rem;">
-                        <div>
-                            <div style="font-size: 1.8rem; margin-bottom: 1rem;">Campus Event Gallery</div>
-                            <div style="font-size: 1.2rem; opacity: 0.9;">Image ${index + 1} - Loading...</div>
-                        </div>
-                    </div>
-                `;
-            });
-        });
     </script>
 <script>
+// This script fetches the header from 'header.html' and inserts it.
 fetch('header.html')
   .then(response => response.text())
   .then(data => {
@@ -647,12 +629,19 @@ fetch('header.html')
 
     // Highlight active nav link based on current page
     const path = window.location.pathname;
-    if (path.includes('hello.html')) {
-      document.getElementById('homeLink').classList.add('active');
-    } else if (path.includes('about%20us.html')) {
-      document.getElementById('aboutLink').classList.add('active');
+    const pageName = path.split("/").pop();
+
+    if (pageName === 'index.html' || pageName === '') {
+      document.getElementById('homeLink')?.classList.add('active');
+    } else if (pageName === 'about%20us.html' || pageName === 'about us.html') {
+      document.getElementById('aboutLink')?.classList.add('active');
+    } else if (pageName === 'ClubsComs.html') {
+      document.querySelector('a[href="ClubsComs.html"]')?.classList.add('active');
+    } else if (pageName === 'contact_repository.html') {
+        document.querySelector('a[href="contact_repository.html"]')?.classList.add('active');
     }
-  });
+  })
+  .catch(error => console.error('Error fetching header:', error));
 </script>
 
 </body>
