@@ -39,6 +39,11 @@
             padding: 0 20px;
         }
         
+        /* The original header styles below might need adjustment or removal
+           if your header.html contains its own comprehensive styling.
+           I'm leaving them here for now as per the instruction to add the reference.
+           If the header from header.html looks incorrect, these would be the first place to check.
+        */
         header {
             background: linear-gradient(135deg, var(--royal) 0%, var(--midnight) 100%);
             color: white;
@@ -424,16 +429,7 @@
   </style>
  </head>
  <body>
-  <header>
-   <div class="container">
-    <h1>
-     Clubs &amp; Committees
-    </h1>
-    <p class="subtitle">
-     Empowering students through diverse opportunities and experiences
-    </p>
-   </div>
-  </header>
+  <div id="header-container"></div>
   <section class="section fade-in" style=" padding-bottom: 20px;">
    <div class="container" style="text-align: center;">
     <h2 class="section-title">
@@ -1283,6 +1279,22 @@ function toggleCarousel(button, id) {
         section.style.display = "none";
     }
 }
+  </script>
+  <script>
+    // This script fetches the header from 'header.html' and inserts it. [cite: 2025-07-18]
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+
+        // Highlight active nav link based on current page [cite: 2025-07-18]
+        const path = window.location.pathname;
+        if (path.includes('hello.html')) {
+          document.getElementById('homeLink').classList.add('active');
+        } else if (path.includes('about%20us.html')) {
+          document.getElementById('aboutLink').classList.add('active');
+        }
+      });
   </script>
  </body>
 </html>
