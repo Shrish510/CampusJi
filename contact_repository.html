@@ -318,7 +318,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="header-container">
             <div class="logo-section">
@@ -329,21 +328,19 @@
             </div>
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="#" class="nav-link">Home</a></li>
-                    <li><a href="#" class="nav-link">About Us</a></li>
-                    <li><a href="#" class="nav-link">Clubs and Committees</a></li>
-                    <li><a href="#" class="nav-link active">Services</a></li>
-                    <li><a href="#" class="nav-link">IPM Social</a></li>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about_us.html" class="nav-link">About Us</a></li>
+                    <li><a href="ClubsComs (4).html" class="nav-link">Clubs and Committees</a></li>
+                    <li><a href="contact_repository (1).html" class="nav-link active">Services</a></li>
+                    <li><a href="social.html" class="nav-link">IPM Social</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="main-content">
         <h1 class="page-title">Contact Repository</h1>
 
-        <!-- Search Section -->
         <div class="search-section">
             <div class="search-container">
                 <input type="text" id="searchInput" class="search-input" placeholder="Search by name, profession, or contact number...">
@@ -352,14 +349,12 @@
             </div>
         </div>
 
-        <!-- Table Section -->
         <div class="table-section">
             <div class="results-counter" id="resultsCounter">
                 Showing all 33 contacts
             </div>
             
             <table class="contact-table">
-                <!-- Authorities Section -->
                 <thead>
                     <tr>
                         <th class="category-header" colspan="3">Authorities</th>
@@ -453,7 +448,6 @@
                     </tr>
                 </tbody>
 
-                <!-- Campus Services Section -->
                 <thead>
                     <tr>
                         <th class="category-header" colspan="3">Campus Services</th>
@@ -517,7 +511,6 @@
                     </tr>
                 </tbody>
 
-                <!-- Local Services Section -->
                 <thead>
                     <tr>
                         <th class="category-header" colspan="3">Local Services</th>
@@ -567,7 +560,6 @@
                 </tbody>
             </table>
 
-            <!-- No Results Message -->
             <div class="no-results" id="noResults">
                 <div class="no-results-icon">🔍</div>
                 <div>No contacts found matching your search criteria.</div>
@@ -590,8 +582,6 @@
 
         function filterContacts(searchTerm) {
             const contactRows = document.querySelectorAll('.contact-row');
-            const categoryHeaders = document.querySelectorAll('.category-header');
-            const tableHeaders = document.querySelectorAll('.table-header');
             let visibleCount = 0;
             let visibleCategories = {
                 authorities: 0,
@@ -613,7 +603,6 @@
                     row.classList.remove('hidden');
                     visibleCount++;
                     
-                    // Count visible contacts by category
                     const category = row.getAttribute('data-category');
                     if (category === 'authorities') visibleCategories.authorities++;
                     else if (category === 'campus-services') visibleCategories.campusServices++;
@@ -623,7 +612,6 @@
                 }
             });
 
-            // Show/hide category headers based on whether they have visible contacts
             const authoritiesHeader = document.querySelector('thead:nth-of-type(1)');
             const campusServicesHeader = document.querySelector('thead:nth-of-type(2)');
             const localServicesHeader = document.querySelector('thead:nth-of-type(3)');
@@ -632,7 +620,6 @@
             campusServicesHeader.style.display = visibleCategories.campusServices > 0 ? '' : 'none';
             localServicesHeader.style.display = visibleCategories.localServices > 0 ? '' : 'none';
 
-            // Update results counter
             const resultsCounter = document.getElementById('resultsCounter');
             const noResults = document.getElementById('noResults');
             
@@ -644,38 +631,24 @@
                 noResults.style.display = 'none';
                 
                 if (searchTerm === '') {
-                    resultsCounter.textContent = 'Showing all 33 contacts';
+                    resultsCounter.textContent = `Showing all ${contactRows.length} contacts`;
                 } else {
-                    resultsCounter.textContent = `Found ${visibleCount} contact${visibleCount !== 1 ? 's' : ''} matching "${searchTerm}"`;
+                    resultsCounter.textContent = `Found ${visibleCount} contact${visibleCount !== 1 ? 's' : ''} matching your search`;
                 }
             }
         }
 
-        // Search on Enter key
         document.getElementById('searchInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 performSearch();
             }
         });
 
-        // Real-time search as user types
         document.getElementById('searchInput').addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase().trim();
             filterContacts(searchTerm);
         });
 
-        // Navigation link handlers
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                // Add navigation logic here when other pages are created
-            });
-        });
-
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add any initialization code here
-        });
     </script>
 </body>
 </html>
