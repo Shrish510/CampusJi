@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Repository - CampusJi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background-color: #F7F2EB;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #334EAC 0%, #081F5C 100%);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(8, 31, 92, 0.15);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .iim-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        .campusji-logo-placeholder {
+            width: 180px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #D0E3FF;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #F7F2EB;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #D0E3FF;
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background-color: #7096D1;
+            color: white;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-title {
+            text-align: center;
+            color: #081F5C;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+
+        /* Search Section */
+        .search-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(8, 31, 92, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .search-container {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.875rem 1.25rem;
+            border: 2px solid #BAD6EB;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: Georgia, serif;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #7096D1;
+            box-shadow: 0 0 0 3px rgba(112, 150, 209, 0.2);
+        }
+
+        .search-button {
+            padding: 0.875rem 1.5rem;
+            background: linear-gradient(135deg, #334EAC, #7096D1);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(51, 78, 172, 0.3);
+        }
+
+        .clear-search {
+            padding: 0.875rem 1.25rem;
+            background: #EDF1F6;
+            color: #334EAC;
+            border: 2px solid #BAD6EB;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .clear-search:hover {
+            background: #D0E3FF;
+            border-color: #7096D1;
+        }
+
+        /* Table Section */
+        .table-section {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(8, 31, 92, 0.1);
+            overflow: hidden;
+        }
+
+        .contact-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .category-header {
+            background: linear-gradient(135deg, #334EAC, #7096D1);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 1.5rem;
+            border: none;
+        }
+
+        .table-header {
+            background: #EDF1F6;
+            color: #081F5C;
+            font-weight: bold;
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 2px solid #BAD6EB;
+        }
+
+        .contact-row {
+            border-bottom: 1px solid #EDF1F6;
+            transition: all 0.3s ease;
+        }
+
+        .contact-row:hover {
+            background-color: #F7F2EB;
+            transform: translateX(5px);
+        }
+
+        .contact-row.hidden {
+            display: none;
+        }
+
+        .contact-cell {
+            padding: 1rem;
+            color: #334EAC;
+            vertical-align: top;
+        }
+
+        .contact-name {
+            font-weight: 600;
+            color: #081F5C;
+        }
+
+        .contact-profession {
+            color: #7096D1;
+            font-style: italic;
+        }
+
+        .contact-number {
+            font-family: 'Courier New', monospace;
+            font-weight: 500;
+            color: #334EAC;
+        }
+
+        /* No Results Message */
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: #7096D1;
+            font-size: 1.1rem;
+            display: none;
+        }
+
+        .no-results-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #BAD6EB;
+        }
+
+        /* Results Counter */
+        .results-counter {
+            text-align: center;
+            padding: 1rem;
+            color: #334EAC;
+            font-weight: 500;
+            background: #F7F2EB;
+            border-bottom: 2px solid #EDF1F6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .search-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .search-input, .search-button, .clear-search {
+                width: 100%;
+            }
+
+            .contact-table {
+                font-size: 0.85rem;
+            }
+
+            .contact-cell {
+                padding: 0.75rem;
+            }
+
+            .category-header {
+                font-size: 1.1rem;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-table {
+                font-size: 0.8rem;
+            }
+            
+            .contact-cell {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiNEQzI2MjYiLz4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMjUiIGZpbGw9IiMxNkE1NjQiLz4KPHN2ZyB4PSIxNSIgeT0iMTUiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDMwIDMwIj4KPHA+IElJTSBSb2h0YWs8L3A+Cjwvc3ZnPgo8L3N2Zz4K" alt="IIM Rohtak Logo" class="iim-logo">
+                <div class="campusji-logo-placeholder">
+                    CampusJi Logo
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#" class="nav-link">Home</a></li>
+                    <li><a href="#" class="nav-link">About Us</a></li>
+                    <li><a href="#" class="nav-link">Clubs and Committees</a></li>
+                    <li><a href="#" class="nav-link active">Services</a></li>
+                    <li><a href="#" class="nav-link">IPM Social</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1 class="page-title">Contact Repository</h1>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search by name, profession, or contact number...">
+                <button class="search-button" onclick="performSearch()">Search</button>
+                <button class="clear-search" onclick="clearSearch()">Clear</button>
+            </div>
+        </div>
+
+        <!-- Table Section -->
+        <div class="table-section">
+            <div class="results-counter" id="resultsCounter">
+                Showing all 33 contacts
+            </div>
+            
+            <table class="contact-table">
+                <!-- Authorities Section -->
+                <thead>
+                    <tr>
+                        <th class="category-header" colspan="3">Authorities</th>
+                    </tr>
+                    <tr>
+                        <th class="table-header">Name</th>
+                        <th class="table-header">Profession/Role</th>
+                        <th class="table-header">Contact Number</th>
+                    </tr>
+                </thead>
+                <tbody id="authoritiesSection">
+                    <tr class="contact-row" data-category="authorities">
+                        <td class="contact-cell contact-name">Dushyanth Reddy</td>
+                        <td class="contact-cell contact-profession">Assistant Manager Programme</td>
+                        <td class="contact-cell contact-number">01262-228539/ +917082001615</td>
+                    </tr>
+                    <tr class="contact-row" data-category="authorities">
+                        <td class="contact-cell contact-name">Mr. Suresh Khatri</td>
+                        <td class="contact-cell contact-profession">Administrative Officer</td>
+                        <td class="contact-cell contact-number">01262-228606</td>
+                    </tr>
+                    <tr class="contact-row" data-category="authorities">
+                        <td class="contact-cell contact-name">Dr. Peeyush Pandey</td>
+                        <td class="contact-cell contact-profession">Co-Chairperson, IPM</td>
+                        <td class="contact-cell contact-number">01262-228526</td>
+                    </tr>
+                    <tr class="contact-row" data-category="authorities">
+                        <td class="contact-cell contact-name">Dr. Abhishek Singh</td>
+                        <td class="contact-cell contact-profession">Co-Chairperson, IPM</td>
+                        <td class="contact-cell contact-number">01262-228624</td>
+                    </tr>
+                    <tr class="contact-row" data-category="authorities">
+                        <td class="contact-cell contact-name">Mr. Pushkar Kashyap</td>
+                        <td class="contact-cell contact-profession">Asst. Manager Admissions and Administration</td>
+                        <td class="contact-cell contact-number">01262-228527</td>
+                    </tr>
+                    <tr class="contact-row" data-category="authorities">
+                        <td class="contact-cell contact-name">Dr. Deepika Jain</td>
+                        <td class="contact-cell contact-profession">Co-Chairperson Students Affairs</td>
+                        <td class="contact-cell contact-number">01262-228557</td>
+                    </tr>
+                    <tr class="contact-row" data-category="authorities">
+                        <td class="contact-cell contact-name">Dr. Akanksha Saxena</td>
+                        <td class="contact-cell contact-profession">Co-Chairperson Students Affairs</td>
+                        <td class="contact-cell contact-number">01262-228618</td>
+                    </tr>
+                    <tr class="contact-row" data-category="authorities">
+                        <td class="contact-cell contact-name">Mr. Deepak Rohilla</td>
+                        <td class="contact-cell contact-profession">HSA Officer</td>
+                        <td class="contact-cell contact-number">+917082001632</td>
+                    </tr>
+                    <tr class="contact-row" data-category="authorities">
+                        <td class="contact-cell contact-name">Mr. Kamal Kishore Joshi</td>
+                        <td class="contact-cell contact-profession">Librarian</td>
+                        <td class="contact-cell contact-number">02162-228509</td>
+                    </tr>
+                    <tr class="contact-row" data-category="authorities">
+                        <td class="contact-cell contact-name">Dr Koustab Ghosh</td>
+                        <td class="contact-cell contact-profession">Dean Academics</td>
+                        <td class="contact-cell contact-number">01262-228525</td>
+                    </tr>
+                    <tr class="contact-row" data-category="authorities">
+                        <td class="contact-cell contact-name">Dr S K Pandey</td>
+                        <td class="contact-cell contact-profession">Dean (REE)</td>
+                        <td class="contact-cell contact-number">01262-274054</td>
+                    </tr>
+                    <tr class="contact-row" data-category="authorities">
+                        <td class="contact-cell contact-name">Mr Parikshit R Java</td>
+                        <td class="contact-cell contact-profession">Senior Administrative Officer</td>
+                        <td class="contact-cell contact-number">01262-228600</td>
+                    </tr>
+                    <tr class="contact-row" data-category="authorities">
+                        <td class="contact-cell contact-name">Mr Sachin</td>
+                        <td class="contact-cell contact-profession">Office Assistant</td>
+                        <td class="contact-cell contact-number">01262-228503/+917082001603</td>
+                    </tr>
+                    <tr class="contact-row" data-category="authorities">
+                        <td class="contact-cell contact-name">Mr Priyanka Darji</td>
+                        <td class="contact-cell contact-profession">FA & CAO</td>
+                        <td class="contact-cell contact-number">01262-274053</td>
+                    </tr>
+                    <tr class="contact-row" data-category="authorities">
+                        <td class="contact-cell contact-name">Mr Kamlesh Pal</td>
+                        <td class="contact-cell contact-profession">System Administrator</td>
+                        <td class="contact-cell contact-number">01262-228510</td>
+                    </tr>
+                    <tr class="contact-row" data-category="authorities">
+                        <td class="contact-cell contact-name">Mr Dharmesh Bajpai</td>
+                        <td class="contact-cell contact-profession">Programmer</td>
+                        <td class="contact-cell contact-number">01262-228542</td>
+                    </tr>
+                </tbody>
+
+                <!-- Campus Services Section -->
+                <thead>
+                    <tr>
+                        <th class="category-header" colspan="3">Campus Services</th>
+                    </tr>
+                    <tr>
+                        <th class="table-header">Name</th>
+                        <th class="table-header">Profession/Role</th>
+                        <th class="table-header">Contact Number</th>
+                    </tr>
+                </thead>
+                <tbody id="campusServicesSection">
+                    <tr class="contact-row" data-category="campus-services">
+                        <td class="contact-cell contact-name">Mr. Narayan Singh Rathi</td>
+                        <td class="contact-cell contact-profession">Medical Emergency</td>
+                        <td class="contact-cell contact-number">+917082001632</td>
+                    </tr>
+                    <tr class="contact-row" data-category="campus-services">
+                        <td class="contact-cell contact-name">Ambulance Main Gate Security</td>
+                        <td class="contact-cell contact-profession">Operating hours: 9:00 pm to 6:00 am</td>
+                        <td class="contact-cell contact-number">01262-228561</td>
+                    </tr>
+                    <tr class="contact-row" data-category="campus-services">
+                        <td class="contact-cell contact-name">Health Supervisor</td>
+                        <td class="contact-cell contact-profession">Health Supervisor</td>
+                        <td class="contact-cell contact-number">+917082118100</td>
+                    </tr>
+                    <tr class="contact-row" data-category="campus-services">
+                        <td class="contact-cell contact-name">Mr. Rishabh</td>
+                        <td class="contact-cell contact-profession">Maintenance Junior Engineer (Electrical)</td>
+                        <td class="contact-cell contact-number">+919050387213</td>
+                    </tr>
+                    <tr class="contact-row" data-category="campus-services">
+                        <td class="contact-cell contact-name">Mr. Pratham</td>
+                        <td class="contact-cell contact-profession">Maintenance Junior Engineer (Civil)</td>
+                        <td class="contact-cell contact-number">+918950258508</td>
+                    </tr>
+                    <tr class="contact-row" data-category="campus-services">
+                        <td class="contact-cell contact-name">Oshan Rai</td>
+                        <td class="contact-cell contact-profession">Student Council President</td>
+                        <td class="contact-cell contact-number">+917354236136</td>
+                    </tr>
+                    <tr class="contact-row" data-category="campus-services">
+                        <td class="contact-cell contact-name">Shashwat Singh</td>
+                        <td class="contact-cell contact-profession">Student Council Vice President</td>
+                        <td class="contact-cell contact-number">+918354899928</td>
+                    </tr>
+                    <tr class="contact-row" data-category="campus-services">
+                        <td class="contact-cell contact-name">RMO (Male)</td>
+                        <td class="contact-cell contact-profession">Kainos Super Speciality Hospital, Monday to Saturday, 1:00 pm to 5:00 pm, Student Activity Centre</td>
+                        <td class="contact-cell contact-number">-</td>
+                    </tr>
+                    <tr class="contact-row" data-category="campus-services">
+                        <td class="contact-cell contact-name">RMO (Feamale)</td>
+                        <td class="contact-cell contact-profession">Holy Heart Hospital, Monday to Saturday, 10:00 am to 12:00 pm, Student Activity Centre</td>
+                        <td class="contact-cell contact-number">-</td>
+                    </tr>
+                    <tr class="contact-row" data-category="campus-services">
+                        <td class="contact-cell contact-name">Laundry</td>
+                        <td class="contact-cell contact-profession">Laundry Service</td>
+                        <td class="contact-cell contact-number">+919034663026</td>
+                    </tr>
+                </tbody>
+
+                <!-- Local Services Section -->
+                <thead>
+                    <tr>
+                        <th class="category-header" colspan="3">Local Services</th>
+                    </tr>
+                    <tr>
+                        <th class="table-header">Name</th>
+                        <th class="table-header">Profession/Role</th>
+                        <th class="table-header">Contact Number</th>
+                    </tr>
+                </thead>
+                <tbody id="localServicesSection">
+                    <tr class="contact-row" data-category="local-services">
+                        <td class="contact-cell contact-name">Rahul</td>
+                        <td class="contact-cell contact-profession">Delivery Man</td>
+                        <td class="contact-cell contact-number">+917494873259</td>
+                    </tr>
+                    <tr class="contact-row" data-category="local-services">
+                        <td class="contact-cell contact-name">Azad</td>
+                        <td class="contact-cell contact-profession">Local Delivery Man</td>
+                        <td class="contact-cell contact-number">+919315421193</td>
+                    </tr>
+                    <tr class="contact-row" data-category="local-services">
+                        <td class="contact-cell contact-name">Dhaba 24</td>
+                        <td class="contact-cell contact-profession">Restaurant</td>
+                        <td class="contact-cell contact-number">+918813078398</td>
+                    </tr>
+                    <tr class="contact-row" data-category="local-services">
+                        <td class="contact-cell contact-name">Mannat Dhaba</td>
+                        <td class="contact-cell contact-profession">Restaurant</td>
+                        <td class="contact-cell contact-number">+919254323030</td>
+                    </tr>
+                    <tr class="contact-row" data-category="local-services">
+                        <td class="contact-cell contact-name">Laptop Repair</td>
+                        <td class="contact-cell contact-profession">Laptop Repair Service</td>
+                        <td class="contact-cell contact-number">+919808888877</td>
+                    </tr>
+                    <tr class="contact-row" data-category="local-services">
+                        <td class="contact-cell contact-name">Laptop Repair</td>
+                        <td class="contact-cell contact-profession">Laptop Repair Service</td>
+                        <td class="contact-cell contact-number">+919896030740</td>
+                    </tr>
+                    <tr class="contact-row" data-category="local-services">
+                        <td class="contact-cell contact-name">Laptop Repair</td>
+                        <td class="contact-cell contact-profession">Laptop Repair Service</td>
+                        <td class="contact-cell contact-number">+919653575260</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- No Results Message -->
+            <div class="no-results" id="noResults">
+                <div class="no-results-icon">🔍</div>
+                <div>No contacts found matching your search criteria.</div>
+                <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #BAD6EB;">Try searching with different keywords or clear your search to view all contacts.</div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Search functionality
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            filterContacts(searchTerm);
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            filterContacts('');
+        }
+
+        function filterContacts(searchTerm) {
+            const contactRows = document.querySelectorAll('.contact-row');
+            const categoryHeaders = document.querySelectorAll('.category-header');
+            const tableHeaders = document.querySelectorAll('.table-header');
+            let visibleCount = 0;
+            let visibleCategories = {
+                authorities: 0,
+                campusServices: 0,
+                localServices: 0
+            };
+
+            contactRows.forEach(row => {
+                const name = row.querySelector('.contact-name').textContent.toLowerCase();
+                const profession = row.querySelector('.contact-profession').textContent.toLowerCase();
+                const number = row.querySelector('.contact-number').textContent.toLowerCase();
+                
+                const isVisible = searchTerm === '' || 
+                                name.includes(searchTerm) || 
+                                profession.includes(searchTerm) || 
+                                number.includes(searchTerm);
+                
+                if (isVisible) {
+                    row.classList.remove('hidden');
+                    visibleCount++;
+                    
+                    // Count visible contacts by category
+                    const category = row.getAttribute('data-category');
+                    if (category === 'authorities') visibleCategories.authorities++;
+                    else if (category === 'campus-services') visibleCategories.campusServices++;
+                    else if (category === 'local-services') visibleCategories.localServices++;
+                } else {
+                    row.classList.add('hidden');
+                }
+            });
+
+            // Show/hide category headers based on whether they have visible contacts
+            const authoritiesHeader = document.querySelector('thead:nth-of-type(1)');
+            const campusServicesHeader = document.querySelector('thead:nth-of-type(2)');
+            const localServicesHeader = document.querySelector('thead:nth-of-type(3)');
+
+            authoritiesHeader.style.display = visibleCategories.authorities > 0 ? '' : 'none';
+            campusServicesHeader.style.display = visibleCategories.campusServices > 0 ? '' : 'none';
+            localServicesHeader.style.display = visibleCategories.localServices > 0 ? '' : 'none';
+
+            // Update results counter
+            const resultsCounter = document.getElementById('resultsCounter');
+            const noResults = document.getElementById('noResults');
+            
+            if (visibleCount === 0) {
+                resultsCounter.style.display = 'none';
+                noResults.style.display = 'block';
+            } else {
+                resultsCounter.style.display = 'block';
+                noResults.style.display = 'none';
+                
+                if (searchTerm === '') {
+                    resultsCounter.textContent = 'Showing all 33 contacts';
+                } else {
+                    resultsCounter.textContent = `Found ${visibleCount} contact${visibleCount !== 1 ? 's' : ''} matching "${searchTerm}"`;
+                }
+            }
+        }
+
+        // Search on Enter key
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Real-time search as user types
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase().trim();
+            filterContacts(searchTerm);
+        });
+
+        // Navigation link handlers
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Add navigation logic here when other pages are created
+            });
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add any initialization code here
+        });
+    </script>
+</body>
+</html>
